@@ -13,6 +13,137 @@
   color: white;
 }
 
+.bg {
+width: 100%;
+margin-left: 0;
+}
+
+#backgroundImage {
+  height: 300px;
+  width: 100%
+}
 
 
+.bg-edit-icon {
+ margin-left: 65rem;
+ margin-top: -45rem;
+}
 
+.profile-img {
+width: 220px;
+height: 200px;
+  border-radius: 50%;
+  margin-top: -8rem;
+  margin-left: -50rem;
+
+.bg {
+  width: 100%;
+  margin-left: 0;
+  }
+
+  #backgroundImage {
+    height: 300px;
+    width: 100%;
+  }
+  
+  .bg-edit-icon {
+   margin-left: 65rem;
+   margin-top: -45rem;
+  }
+  
+  .profile-img {
+  width: 220px;
+  height: 200px;
+    border-radius: 50%;
+    margin-top: -8rem;
+    margin-left: -50rem;
+  
+  }
+  
+  .main-section {
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    margin-top: 1rem;
+    overflow: hidden;
+  }
+
+  .bell-icon {
+    position: absolute;
+ right: 250px;
+ font-size: 28px;
+ top: 350px;
+  }
+
+  .details {
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .profile-buttons {
+    border-radius: 25px !important;
+    padding: 5px 20px !important;
+  }
+  
+  .profile-edit {
+   position: absolute;
+   right: 250px;
+   font-size: 28px;
+  }
+
+
+  .about {
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: left !important;
+  }
+
+
+.nav-icons {
+  font-size: 30px;
+}
+
+input {
+  border: none;
+  background-color: #e3edf7;
+  height: 50px;
+  width: 250px;
+  border-radius: 5px;
+}
+
+.linkedin-icon {
+  font-size: 55px;
+  color: blue;
+}
+
+
+.nav-text {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+
+
+}
+
+.details {
+  text-align: left;
+  margin-left: 2rem;
+}
+
+.profile-buttons {
+  border-radius: 25px !important;
+  padding: 5px 20px !important;
+}
+
+.profile-edit {
+ position: absolute;
+ right: 250px;
+ font-size: 28px;
+}
