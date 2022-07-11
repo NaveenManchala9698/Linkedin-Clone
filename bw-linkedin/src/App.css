@@ -13,6 +13,33 @@
   color: white;
 }
 
+.nav-icons {
+  font-size: 30px;
+}
 
+input {
+  border: none;
+  background-color: #e3edf7;
+  height: 50px;
+  width: 250px;
+  border-radius: 5px;
+}
+
+.linkedin-icon {
+  font-size: 55px;
+  color: blue;
+}
+
+.nav-text {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
 
 
