@@ -51,7 +51,7 @@ const Sidebar = () => {
 
     return (
         <>
-            <Card style={{ width: "18rem" }} className="mb-2">
+            <Card style={{ width: "18rem" }} className="mb-2 mt-3">
                 <Card.Body>
                     <Card.Text className="font-weight-bold" style={{ fontSize: "14px" }}>
                         Edit public profile & URL
@@ -106,9 +106,11 @@ const Sidebar = () => {
                                         borderRadius: "50px",
                                         fontSize: "16px",
                                         width: "100px",
+                                        border: '1px solid lightgrey'
                                     }}
-                                        variant="outline-dark"
-                                        className="font-weight-bold mb-2 text-muted p-1">
+                                        variant="outline-light"
+                                        className="font-weight-bold mb-2 text-muted p-1"
+                                        >
                                         Connect
                                     </Button>
                                 </div>
