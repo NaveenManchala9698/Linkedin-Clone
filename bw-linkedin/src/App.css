@@ -13,6 +13,24 @@
   color: white;
 }
 
+.nav-icons {
+  font-size: 30px;
+}
 
+.linkedin-icon {
+  font-size: 55px;
+}
+
+.nav-text {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
 
 
