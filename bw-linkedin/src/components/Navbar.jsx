@@ -9,7 +9,7 @@ const Navbar = () => {
                 <Col md={4} className='my-2'>
                     <Linkedin className='linkedin-icon mx-3'/>
                     <input type="Search" placeholder='Search'></input>
-                </Col>
+                </Col> 
                 <Col md={8}>
                     <div className='nav-links my-2'>
                         <div className='nav-text'><HouseFill className='nav-icons'/>Home</div>
