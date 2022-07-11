@@ -17,8 +17,17 @@
   font-size: 30px;
 }
 
+input {
+  border: none;
+  background-color: #e3edf7;
+  height: 50px;
+  width: 250px;
+  border-radius: 5px;
+}
+
 .linkedin-icon {
   font-size: 55px;
+  color: blue;
 }
 
 .nav-text {
