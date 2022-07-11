@@ -1,20 +1,23 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { useParams } from "react-router"
+import { Container, Button } from "react-bootstrap"
+import { Bell } from 'react-bootstrap-icons'
 
 
 const CurrentProfile = () => {
 
     const [currentProfileData, setCurrentProfileData] = useState({})
-    let { id } = useParams()
+
+    const id = useParams().id
 
     useEffect(() => {
         fetchCurrentData()
     }, [id])
 
-    const fetchCurrentData = async () => {
+    const fetchCurrentData = async (id) => {
         try {
-            const url = "https://striveschool-api.herokuapp.com/api/profile/{userId}"
+            const url = "https://striveschool-api.herokuapp.com/api/profile/" + id;
 
             const response = await fetch(url,
                 {
@@ -24,7 +27,7 @@ const CurrentProfile = () => {
                 }
             )
 
-            if(response.ok) {
+            if (response.ok) {
                 const data = await response.json()
                 console.log(data)
                 setCurrentProfileData(data)
@@ -37,8 +40,36 @@ const CurrentProfile = () => {
         }
     }
     return (
-        <>
-        </>
+        <Container>
+            <div className="main-section">
+                <div style={{ width: '100%' }}>
+                    <div className='bg'><img id='backgroundImage' src='https://i.pinimg.com/originals/76/e9/23/76e9238fca30a0fc41b6f5fac75b516b.jpg' alt='backgroundImage' /></div>
+
+                    <img className='profile-img' src={currentProfileData.image} alt='profileImage' />
+                </div>
+
+                <div className='details'>
+                    {
+                        currentProfileData && <>
+                            <Bell className="bell-icon" />
+                            <h2>{currentProfileData.name} {currentProfileData.surname}</h2>
+                            <h4>{currentProfileData.title}</h4>
+                            <p>{currentProfileData.area}. <a href='#' style={{ color: '#0a66c2' }}><b>Contact info</b></a></p>
+                            <a href='#' style={{ color: '#0a66c2' }}><b>Connections</b></a>
+                            <div className='mt-2'>
+                                <Button className='mr-2 profile-buttons' variant='primary'><b>Message</b></Button>
+                                <Button className='mr-2 profile-buttons' variant='outline-secondary'><b>More</b></Button>
+                            </div>
+
+                        </>
+                    }
+                </div>
+            </div>
+            <div className="about mt-3">
+                <h2>About</h2>
+                <p>{currentProfileData.bio}</p>
+            </div>
+        </Container>
     )
 }
 
