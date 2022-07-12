@@ -1,5 +1,6 @@
 import { Col, Container, FormControl, InputGroup, Nav, Row } from 'react-bootstrap'
 import { Linkedin, PeopleFill, BellFill, ChatDotsFill, BriefcaseFill, HouseFill, Bag, CaretDownFill, Grid3x3GapFill, Search } from 'react-bootstrap-icons'
+import SearchBar from './SearchBar'
 
 
 const Navbar = () => {
@@ -8,23 +9,7 @@ const Navbar = () => {
             <Row className='mynav'>
                 <Col md={4} className='my-2 nav-left'>
                     <Linkedin className='linkedin-icon mx-3' />
-                    <InputGroup className="flex-row mb-3">
-                        <InputGroup.Text
-                            style={{
-                                height: "2.5rem",
-                                width: "15rem",
-                                borderRadius: "0.25rem",
-                                borderRight: 0,
-                                paddingLeft: "0.8rem",
-                                paddingRight: "0",
-                                backgroundColor: "#eef3f8",
-                                border: '0',
-                                marginTop: '0.5rem'
-                            }}
-                        >
-                            <Search style={{ height: "15px", width: "15px" }} />
-                        </InputGroup.Text>
-                    </InputGroup>
+                    <SearchBar className='search-field'/>
                     {/* <input type="Search" placeholder='Search' ></input> */}
                 </Col>
                 <Col md={8}>
