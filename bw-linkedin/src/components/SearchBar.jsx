@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { Form, InputGroup, ListGroup } from "react-bootstrap";
-import { Link, Search } from "react-bootstrap-icons";
+import { Search } from "react-bootstrap-icons";
 
 
 const SearchBar = () => {
@@ -65,6 +65,7 @@ const SearchBar = () => {
                     type="text"
                     
                     onChange={handleFilter}
+                    
                 >    
                     <Form.Control
           placeholder="Search"
@@ -76,22 +77,20 @@ const SearchBar = () => {
                 <div  /* style={{marginTop: '33rem'}} */>
                     {filteredData.slice(0, 10).map((data) => {
                         return (
-                            <ListGroup>
+                            <ListGroup className="search-list">
                                 <div>
-                                    <Link to="/id">
-                                        <ListGroup.Item 
-                                        
-                                            style={{
-                                                textAlign: "left",
-                                            }}
-                                            onClick={() => onInputClick(true)}>
-                                            <img
-                                                style={{ width: "25px", height: "25px", borderRadius: "50%" }}
-                                                src={data.image} alt= ''
-                                            />
-                                            <span className="ml-2" style={{ color: "black", fontSize: "14px" }}><strong>{data.name}</strong></span>
-                                        </ListGroup.Item>
-                                    </Link>
+                                    <ListGroup.Item 
+                                    
+                                        style={{
+                                            textAlign: "left",
+                                        }}
+                                        onClick={() => onInputClick(true)}>
+                                        <img
+                                            style={{ width: "25px", height: "25px", borderRadius: "50%" }}
+                                            src={data.image} alt= ''
+                                        />
+                                        <span className="ml-2" style={{ color: "black", fontSize: "14px" }}><strong>{data.name}</strong></span>
+                                    </ListGroup.Item>
                                 </div>
                             </ListGroup>
                         )
