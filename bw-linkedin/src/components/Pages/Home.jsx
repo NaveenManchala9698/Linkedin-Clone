@@ -2,7 +2,6 @@ import Footer from "../Footer"
 import Profile from "../Profile"
 import Sidebar from "../Sidebar"
 
-
 const Home = () => {
     return(
         <>

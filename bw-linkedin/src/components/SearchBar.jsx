@@ -74,7 +74,7 @@ const SearchBar = () => {
             </div>
 
             {filteredData.length !== 0 && (
-                <div  /* style={{marginTop: '33rem'}} */>
+                <div style={{position: 'absolute', zIndex: '3'}} /* style={{marginTop: '33rem'}} */>
                     {filteredData.slice(0, 10).map((data) => {
                         return (
                             <ListGroup className="search-list">

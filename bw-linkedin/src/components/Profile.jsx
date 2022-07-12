@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
 import { Pencil, PencilFill } from 'react-bootstrap-icons'
 import ProfileEdit from './ProfileEdit'
+import MyExperience from './MyExperience'
 
 
 
@@ -70,6 +71,9 @@ const Profile = () => {
             <div className="about mt-3" style={{backgroundColor: 'white'}}>
                 <h2>About</h2>
                 <p>{profileData.bio}</p>
+            </div>
+            <div>
+                <MyExperience/>
             </div>
         </Container>
     )

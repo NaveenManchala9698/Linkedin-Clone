@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Modal, Form, Button, Row, Col, Image } from "react-bootstrap";
 import { Pencil, Plus } from 'react-bootstrap-icons';
-import { parseISO, format } from "date-fns";
+import { parseISO, format } from 'date-fns'
 
 const MyExperience = () => {
 
     const [experiences, setExperiences] = useState([])
-
     const [addExperience, setAddExperience] = useState({
         role: "",
         company: "",
@@ -16,11 +15,11 @@ const MyExperience = () => {
         area: "",
     });
 
-    {
+    
         useEffect(() => {
             fetchExperience();
         }, []);
-    }
+    
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -43,8 +42,6 @@ const MyExperience = () => {
         console.log("This is get console", responseData);
         setExperiences(responseData);
     };
-
-
 
     const submitExperience = async (e) => {
         e.preventDefault();
@@ -185,16 +182,16 @@ const MyExperience = () => {
 
             <div className="experience-div">
                 <div>
-                    <h3 style={{ display: "inline" }}>Experience</h3>
+                    <h2 style={{ display: 'inline', textAlign: 'left', }}>Experience</h2>
                     <Plus
                         size="2.5rem"
                         onClick={handleShow}
-                        style={{ cursor: "pointer", marginLeft: "30rem" }}
+                        style={{ cursor: "pointer", marginLeft: "40rem" }}
                     />
 
                     <Pencil
                         size="1.2rem"
-                        style={{ cursor: "pointer", marginLeft: "1rem" }} />
+                        style={{ cursor: "pointer", marginLeft: "45rem", marginTop: '-4rem' }} />
 
                 </div>
                 {experiences.map((experience) => (
