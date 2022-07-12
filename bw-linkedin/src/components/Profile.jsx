@@ -4,6 +4,7 @@ import { Button, Container, Row } from 'react-bootstrap'
 import { Pencil, PencilFill } from 'react-bootstrap-icons'
 import ProfileEdit from './ProfileEdit'
 import MyExperience from './MyExperience'
+import StaticElements from './StaticElements'
 
 
 
@@ -74,6 +75,9 @@ const Profile = () => {
             </div>
             <div>
                 <MyExperience/>
+            </div>
+            <div>
+                <StaticElements/>
             </div>
         </Container>
     )

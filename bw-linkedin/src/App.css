@@ -176,7 +176,7 @@
 
 } */
 
-.experience-div {
+.experience-div, .education-div, .skills-div{
   margin-top: 15px;
   border: 1px solid lightgrey;
   border-radius: 15px;
