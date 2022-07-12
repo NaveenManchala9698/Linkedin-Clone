@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import CurrentProfile from "./components/CurrentProfile";
 import Navbar from "./components/Navbar";
 import { Col, Container, Row } from "react-bootstrap";
+import MyExperience from "./components/MyExperience";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div className="d-flex hero-section">
         <div className="flex-grow-1">
           <Profile />
+          <MyExperience />
         </div>
         <div>
           <Sidebar />
