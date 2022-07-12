@@ -3,7 +3,9 @@ import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CurrentProfile from "./components/CurrentProfile";
 import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
+import ProfileEdit from "./components/ProfileEdit";
 
 import MyExperience from "./components/MyExperience";
 
@@ -16,7 +18,6 @@ function App() {
     <div className="App">
 
       <Navbar />
-
       <div className="d-flex hero-section">
         <div className="flex-grow-1">
           <Profile />

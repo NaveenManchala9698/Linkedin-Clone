@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
 import { Pencil, PencilFill } from 'react-bootstrap-icons'
+import ProfileEdit from './ProfileEdit'
 
 
 
@@ -16,8 +17,6 @@ const Profile = () => {
     const fetchProfile = async () => {
         try {
             const url = "https://striveschool-api.herokuapp.com/api/profile/me"
-
-
             const response = await fetch(url,
                 {
                     headers: {
@@ -49,10 +48,12 @@ const Profile = () => {
                     <img className='profile-img' src={profileData.image} alt='profileImage' />
                 </div>
                 <PencilFill className='bg-edit-icon' />
+                
                 <div className='details'>
                     {
                         profileData && <>
-                            <Pencil className='profile-edit'/>
+                           {/*  <Pencil  className='profile-edit'/> */}
+                           <ProfileEdit className='profile-edit'/>
                             <h2>{profileData.name} {profileData.surname}</h2>
                             <h4>{profileData.title}</h4>
                             <p>{profileData.area}. <a href='#' style={{ color: '#0a66c2' }}><b>Contact info</b></a></p>
@@ -65,6 +66,10 @@ const Profile = () => {
                         </>
                     }
                 </div>
+            </div>
+            <div className="about mt-3" style={{backgroundColor: 'white'}}>
+                <h2>About</h2>
+                <p>{profileData.bio}</p>
             </div>
         </Container>
     )
