@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Modal, Form, Button, Row, Col, Image } from "react-bootstrap";
 import { Pencil, Plus } from 'react-bootstrap-icons';
-import { parseISO, format } from 'date-fns'
+import { parseISO, format } from 'date-fns';
+import EditExperience from "./EditExperience";
 
 const MyExperience = () => {
 
@@ -15,11 +16,11 @@ const MyExperience = () => {
         area: "",
     });
 
-    
-        useEffect(() => {
-            fetchExperience();
-        }, []);
-    
+
+    useEffect(() => {
+        fetchExperience();
+    }, []);
+
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -78,6 +79,8 @@ const MyExperience = () => {
             alert("error", error);
         }
     };
+
+
 
     return (
         <>
@@ -189,14 +192,16 @@ const MyExperience = () => {
                         style={{ cursor: "pointer", marginLeft: "40rem" }}
                     />
 
-                    <Pencil
+                    {/* <Pencil
                         size="1.2rem"
-                        style={{ cursor: "pointer", marginLeft: "45rem", marginTop: '-4rem' }} />
+                        onClick={handleShow}
+                        style={{ cursor: "pointer", marginLeft: "45rem", marginTop: '-4rem' }} /> */}
+                    <EditExperience />
 
                 </div>
                 {experiences.map((experience) => (
                     <Row>
-                        <Col md={1}>
+                        <Col md={1} key={experience.user}>
                             <div style={{ marginLeft: "12px", marginTop: "10px" }}>
                                 <Image
                                     src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
