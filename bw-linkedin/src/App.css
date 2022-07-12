@@ -18,6 +18,9 @@
   background-color: whitesmoke;
   flex-wrap: nowrap !important;
   align-items: center;
+  width: 100%;
+  overflow: hidden;
+  margin-left: 0!important;
 }
 
 .nav-left {
@@ -172,6 +175,7 @@
   border-radius: 50%;
   padding: 5px;
 
+
 }
 
 .experience-div {
@@ -183,3 +187,11 @@
   background-color: white;
   margin-right: 19px;
 }
+
+
+
+
+
+
+
+
