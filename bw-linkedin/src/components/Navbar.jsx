@@ -22,7 +22,7 @@ const Navbar = () => {
                         <a href='#work'className='nav-text mr-3 pl-2' style={{borderLeft: '1px solid grey'}}><Grid3x3GapFill className='nav-icons' /><span>Work<CaretDownFill /></span></a>
                         <a href='#premium' className='premium-msg'>Get hired faster, Try Premium Free</a>
                     </Nav>
-                </Col>
+                
             </Row>
         </Container>
     )
