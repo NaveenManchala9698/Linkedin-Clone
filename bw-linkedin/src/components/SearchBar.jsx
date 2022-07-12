@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { Form, InputGroup, ListGroup } from "react-bootstrap";
-import { Search } from "react-bootstrap-icons";
+import { Link, Search } from "react-bootstrap-icons";
 
 
 const SearchBar = () => {
@@ -65,7 +65,6 @@ const SearchBar = () => {
                     type="text"
                     
                     onChange={handleFilter}
-                    
                 >    
                     <Form.Control
           placeholder="Search"
@@ -79,18 +78,20 @@ const SearchBar = () => {
                         return (
                             <ListGroup>
                                 <div>
-                                    <ListGroup.Item 
-                                    
-                                        style={{
-                                            textAlign: "left",
-                                        }}
-                                        onClick={() => onInputClick(true)}>
-                                        <img
-                                            style={{ width: "25px", height: "25px", borderRadius: "50%" }}
-                                            src={data.image} alt= ''
-                                        />
-                                        <span className="ml-2" style={{ color: "black", fontSize: "14px" }}><strong>{data.name}</strong></span>
-                                    </ListGroup.Item>
+                                    <Link to="/id">
+                                        <ListGroup.Item 
+                                        
+                                            style={{
+                                                textAlign: "left",
+                                            }}
+                                            onClick={() => onInputClick(true)}>
+                                            <img
+                                                style={{ width: "25px", height: "25px", borderRadius: "50%" }}
+                                                src={data.image} alt= ''
+                                            />
+                                            <span className="ml-2" style={{ color: "black", fontSize: "14px" }}><strong>{data.name}</strong></span>
+                                        </ListGroup.Item>
+                                    </Link>
                                 </div>
                             </ListGroup>
                         )
