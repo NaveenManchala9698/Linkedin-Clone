@@ -18,6 +18,7 @@
   background-color: whitesmoke;
   flex-wrap: nowrap !important;
   align-items: center;
+  margin-right: 0 !important;
 }
 
 .nav-left {
@@ -27,6 +28,7 @@
 
 .nav-links {
   display: flex;
+
   /* justify-content: space-between; */
 }
 
@@ -166,11 +168,11 @@ height: 150px !important;
  font-size: 20px;
 }
 
-.profile-edit:hover {
+/* .profile-edit:hover {
   font-size: 20px;
   background-color: #e9e5df;
   border-radius: 50%;
   padding: 5px;
   
 }
-
+ */

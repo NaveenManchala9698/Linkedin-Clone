@@ -27,7 +27,8 @@ const Navbar = () => {
                     </InputGroup>
                     {/* <input type="Search" placeholder='Search' ></input> */}
                 </Col>
-                <Col md={8}>
+                <Col md={8} 
+                style={{flexBasis: 'fit-content'}}>
                     <Nav className='nav-links my-2 mx-4'>
                         <a href='#home'className='nav-text mr-3'><HouseFill className='nav-icons' /><span>Home</span></a>
                         <a href='#network'className='nav-text mr-3'><PeopleFill className='nav-icons' /><span>My Network</span></a>
