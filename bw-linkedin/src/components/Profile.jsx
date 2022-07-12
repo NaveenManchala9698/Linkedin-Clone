@@ -67,6 +67,10 @@ const Profile = () => {
                     }
                 </div>
             </div>
+            <div className="about mt-3" style={{backgroundColor: 'white'}}>
+                <h2>About</h2>
+                <p>{profileData.bio}</p>
+            </div>
         </Container>
     )
 }

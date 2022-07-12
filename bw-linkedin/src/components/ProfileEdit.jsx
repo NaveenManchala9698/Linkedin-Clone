@@ -11,6 +11,7 @@ const ProfileEdit = () => {
         surname: "",
         title: "",
         area: "",
+        bio: ""
     })
 
     const [show, setShow] = useState(false);
@@ -28,6 +29,7 @@ const ProfileEdit = () => {
                 surname: document.getElementById('surname').value,
                 title: document.getElementById('title').value,
                 area: document.getElementById('area').value,
+                bio: document.getElementById('bio').value,
             }
             const url = "https://striveschool-api.herokuapp.com/api/profile/"
 
@@ -86,6 +88,12 @@ const ProfileEdit = () => {
                         Area
                     </label>
                     <input className="inputs-modal" type="text" id="area" />
+                </Modal.Body>
+                <Modal.Body>
+                    <label for="user-bio" class="col-form-label">
+                        Bio
+                    </label>
+                    <input className="inputs-modal" type="text" id="bio" />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
