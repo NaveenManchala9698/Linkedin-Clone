@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #e9e5df;
 }
 
 .App-header {
@@ -13,33 +14,163 @@
   color: white;
 }
 
-.nav-icons {
-  font-size: 30px;
+.mynav {
+  background-color: whitesmoke;
+  flex-wrap: nowrap !important;
+  align-items: center;
 }
 
-input {
-  border: none;
-  background-color: #e3edf7;
-  height: 50px;
-  width: 250px;
-  border-radius: 5px;
+.nav-left {
+  margin-left: 10rem;
+  display: inline-flex;
+}
+
+.nav-links {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.nav-links span {
+  color: rgb(77, 77, 77);
+}
+
+.nav-links span:hover {
+  color: black;
+}
+
+.nav-icons {
+  font-size: 25px;
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+}
+
+.nav-icons:hover {
+color: rgb(22, 22, 22);
+}
+
+.nav-links .premium-msg {
+  color: #915907;
+  display: block;
+  max-width: 8rem;
+}
+
+.nav-links .premium-msg:hover {
+  color: #915907;
+  text-decoration: underline;
 }
 
 .linkedin-icon {
-  font-size: 55px;
-  color: blue;
+  font-size: 50px;
+  padding: 4px;
+  color: #0a66c2;
 }
 
 .nav-text {
 display: flex;
 flex-direction: column;
-justify-content: center;
+align-items: center;
+font-size: 0.8rem;
 }
 
-.nav-links {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 50px;
+.hero-section {
+  margin: 0 10rem;
 }
 
+.bg {
+width: 100%;
+margin-left: 0;
+
+}
+
+#backgroundImage {
+  height: 250px;
+  width: 100%
+}
+
+.profile-img {
+  position: absolute;
+width: 150px !important;
+height: 150px !important;
+  border-radius: 50%;
+  top: 140px;
+  left: 50px;
+  /* margin-top: -6rem;
+  margin-left: -30rem !important; */
+}
+
+.bg {
+  width: 100%;
+  margin-left: 0;
+  }
+  
+  .bg-edit-icon {
+    position: absolute;
+    font-size: 25px;
+    top: 2rem;
+    right: 2rem;
+   /* margin-left: 40rem;
+   margin-top: -42rem; */
+   color: #0a66c2;
+   background-color: aliceblue;
+   border-radius: 50%;
+   padding: 5px;
+  }
+  
+  .main-section {
+    position: relative;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    margin-top: 1rem;
+    overflow: hidden;
+    padding-bottom: 1.5rem;
+    background-color: white;
+  }
+
+  .bell-icon {
+    position: absolute;
+ right: 250px;
+ font-size: 28px;
+ top: 350px;
+  }
+
+  .profile-buttons {
+    border-radius: 25px !important;
+    padding: 5px 20px !important;
+  }
+  
+  .about {
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: left !important;
+  }
+
+.details {
+  text-align: left;
+  margin-left: 1rem;
+  margin-top: 5rem;
+  line-height: 0.5rem;
+}
+
+.profile-buttons {
+  border-radius: 25px !important;
+  padding: 5px 20px !important;
+  margin-top: 1rem;
+
+}
+
+.profile-edit {
+ position: absolute;
+ right: 2rem;
+ top: 17rem;
+ font-size: 20px;
+}
+
+.profile-edit:hover {
+  font-size: 20px;
+  background-color: #e9e5df;
+  border-radius: 50%;
+  padding: 5px;
+  
+}
 
