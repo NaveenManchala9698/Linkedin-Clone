@@ -87,7 +87,6 @@
 .bg {
   width: 100%;
   margin-left: 0;
-
 }
 
 #backgroundImage {
@@ -104,11 +103,6 @@
   left: 50px;
   /* margin-top: -6rem;
   margin-left: -30rem !important; */
-}
-
-.bg {
-  width: 100%;
-  margin-left: 0;
 }
 
 .bg-edit-icon {
@@ -188,7 +182,10 @@
   border-radius: 15px;
   padding: 15px;
   background-color: white;
+  
 }
+
+
 
 
 
