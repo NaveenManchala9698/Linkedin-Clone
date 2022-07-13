@@ -6,7 +6,7 @@ import { parseISO, format } from "date-fns";
 import { useParams } from "react-router-dom";
 
 const MyExperience = () => {
-  /* const [exp_id, getExp_Id] = useState(null); */
+  const [exp_id, setExp_Id] = useState(null);
   const [experiences, setExperiences] = useState([]);
   const [addExperience, setAddExperience] = useState({
     role: "",
@@ -27,17 +27,11 @@ const MyExperience = () => {
 
   useEffect(() => {
     fetchExperience();
-    changeExperience();
-    submitExperience();
-    deleteExperience();
   }, []);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const params = useParams();
-  const exp_id = params.exp_id;
 
   // GET EXPERIENCE
 
@@ -58,6 +52,7 @@ const MyExperience = () => {
     let responseData = await response.json();
     console.log("This is get console", responseData);
     setExperiences(responseData);
+    console.log(experiences.exp_id);
   };
 
   // POST EXPERIENCE
@@ -103,21 +98,21 @@ const MyExperience = () => {
   const changeExperience = async (e) => {
     e.preventDefault();
     try {
-      const experienceDetails = {
+      /* const experienceDetails = {
         role: document.getElementById("role").value,
         company: document.getElementById("company").value,
         startDate: document.getElementById("startdate").value,
         endDate: document.getElementById("enddate").value,
         description: document.getElementById("description").value,
         area: document.getElementById("area").value,
-      };
+      }; */
 
       let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/62cbf64be6c0300015918145/experiences/" +
           exp_id,
         {
           method: "PUT",
-          body: JSON.stringify(experienceDetails),
+          body: JSON.stringify(editExperience),
           headers: {
             "Content-Type": "application/json",
             Authorization:
@@ -167,182 +162,197 @@ const MyExperience = () => {
 
   return (
     <>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Add experience</Modal.Title>
-        </Modal.Header>
+      <>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Add experience</Modal.Title>
+          </Modal.Header>
 
-        <Modal.Body>
-          <Form onSubmit={submitExperience}>
-            <Form.Group>
-              <Form.Label>Role* </Form.Label>
-              <Form.Control
-                type="text"
-                value={addExperience.role}
-                onChange={(e) =>
-                  setAddExperience({ ...addExperience, role: e.target.value })
-                }
-              />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Label>Company*</Form.Label>
-              <Form.Control
-                type="text"
-                value={addExperience.company}
-                onChange={(e) =>
-                  setAddExperience({
-                    ...addExperience,
-                    company: e.target.value,
-                  })
-                }
-              />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Label>Start Date*</Form.Label>
-              <Form.Control
-                type="date"
-                value={addExperience.startDate}
-                onChange={(e) =>
-                  setAddExperience({
-                    ...addExperience,
-                    startDate: e.target.value,
-                  })
-                }
-              />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Label>End Date*</Form.Label>
-              <Form.Control
-                type="date"
-                value={addExperience.endDate}
-                onChange={(e) =>
-                  setAddExperience({
-                    ...addExperience,
-                    endDate: e.target.value,
-                  })
-                }
-              />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Label>Description*</Form.Label>
-              <Form.Control
-                type="text"
-                value={addExperience.description}
-                onChange={(e) =>
-                  setAddExperience({
-                    ...addExperience,
-                    description: e.target.value,
-                  })
-                }
-              />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Label>Area*</Form.Label>
-              <Form.Control
-                type="text"
-                value={addExperience.area}
-                onChange={(e) =>
-                  setAddExperience({ ...addExperience, area: e.target.value })
-                }
-              />
-            </Form.Group>
-
-            <Button variant="primary" type="submit" onClick={changeExperience}>
-              Edit
-            </Button>
-            <Button variant="primary" type="submit" onClick={handleClose}>
-              Save
-            </Button>
-            <Button variant="danger" type="submit" onClick={deleteExperience}>
-              Delete
-            </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
-
-      <div className="experience-div">
-        <div style={{ display: "flex" }}>
-          <div style={{ flexGrow: "1", textAlign: "left" }}>
-            <h2 style={{ display: "inline" }}>Experience</h2>
-          </div>
-          <div>
-            <Plus
-              size="2.5rem"
-              onClick={handleShow}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
-
-          {/* <Pencil
-                        size="1.2rem"
-                        onClick={handleShow}
-                        style={{ cursor: "pointer", marginLeft: "45rem", marginTop: '-4rem' }} /> */}
-        </div>
-        {experiences.map((experience) => (
-          <Row>
-            <Col md={3} key={experience.user}>
-              <div style={{ marginLeft: "12px", marginTop: "10px" }}>
-                <Image
-                  src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
-                  alt="profile-picture"
-                  height="80px"
-                  width="80px"
+          <Modal.Body>
+            <Form onSubmit={submitExperience}>
+              <Form.Group>
+                <Form.Label>Role* </Form.Label>
+                <Form.Control
+                  type="text"
+                  value={addExperience.role}
+                  onChange={(e) =>
+                    setAddExperience({ ...addExperience, role: e.target.value })
+                  }
                 />
-              </div>
-            </Col>
+              </Form.Group>
 
-            <Col md={8}>
-              <div style={{ textAlign: "left", marginLeft: "2.5rem" }}>
-                <h6
-                  className="font-weight-bold my-1"
+              <Form.Group>
+                <Form.Label>Company*</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={addExperience.company}
+                  onChange={(e) =>
+                    setAddExperience({
+                      ...addExperience,
+                      company: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Start Date*</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={addExperience.startDate}
+                  onChange={(e) =>
+                    setAddExperience({
+                      ...addExperience,
+                      startDate: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>End Date*</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={addExperience.endDate}
+                  onChange={(e) =>
+                    setAddExperience({
+                      ...addExperience,
+                      endDate: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Description*</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={addExperience.description}
+                  onChange={(e) =>
+                    setAddExperience({
+                      ...addExperience,
+                      description: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Area*</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={addExperience.area}
+                  onChange={(e) =>
+                    setAddExperience({ ...addExperience, area: e.target.value })
+                  }
+                />
+              </Form.Group>
+
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={() => {
+                  changeExperience();
+                  /*  editExperience(experiences); */
+                }}
+              >
+                Edit
+              </Button>
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={() => {
+                  handleClose();
+                  submitExperience();
+                }}
+              >
+                Save
+              </Button>
+              <Button variant="danger" type="submit" onClick={deleteExperience}>
+                Delete
+              </Button>
+            </Form>
+          </Modal.Body>
+        </Modal>
+
+        <div className="experience-div">
+          <div style={{ display: "flex" }}>
+            <div style={{ flexGrow: "1", textAlign: "left" }}>
+              <h2 style={{ display: "inline" }}>Experience</h2>
+            </div>
+            <div>
+              <Plus
+                size="2.5rem"
+                onClick={handleShow}
+                style={{ cursor: "pointer" }}
+              />
+            </div>
+
+            {/* <Pencil
+                  size="1.2rem"
+                  onClick={handleShow}
+                  style={{ cursor: "pointer", marginLeft: "45rem", marginTop: '-4rem' }} /> */}
+          </div>
+          {experiences.map((experience) => (
+            <Row>
+              <Col md={2} key={experience.user}>
+                <div
                   style={{
-                    fontSize: "20px",
-                    lineHeight: "1.4",
-                    marginRight: "26rem",
+                    marginRight: "12px",
+                    marginTop: "12px",
                   }}
                 >
-                  {experience.role}
-                </h6>
-                <p
-                  className="my-1"
-                  style={{ fontSize: "15px", marginRight: "29.5rem" }}
-                >
-                  {experience.company} . Full-time
-                </p>
-                <p
-                  className="my-1 text-muted"
-                  style={{ fontSize: "14px", marginRight: "26rem" }}
-                >
-                  {experience.startDate &&
-                    format(parseISO(experience.startDate), "MMMM yyyy")}{" "}
-                  -{" "}
-                  {experience.startDate &&
-                    format(parseISO(experience.endDate), "MMMM yyyy")}
-                </p>
-                <p
-                  className="text-muted"
-                  style={{ fontSize: "13px", marginRight: "33.5rem" }}
-                >
-                  {experience.area}
-                </p>
-              </div>
-            </Col>
-            <Col md={1}>
-              '<Pencil onClick={handleShow} />
-            </Col>
-          </Row>
-        ))}
-      </div>
+                  <Image
+                    src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+                    alt="profile-picture"
+                    height="48px"
+                    width="48px"
+                  />
+                </div>
+              </Col>
+
+              <Col md={9}>
+                <div style={{ textAlign: "left", paddingLeft: "0" }}>
+                  <h6
+                    className="font-weight-bold my-1"
+                    style={{
+                      fontSize: "20px",
+                    }}
+                  >
+                    {experience.role}
+                  </h6>
+                  <p className="my-1" style={{ fontSize: "15px" }}>
+                    {experience.company} . Full-time
+                  </p>
+                  <p className="my-1 text-muted" style={{ fontSize: "14px" }}>
+                    {experience.startDate &&
+                      format(parseISO(experience.startDate), "MMMM yyyy")}{" "}
+                    -{" "}
+                    {experience.startDate &&
+                      format(parseISO(experience.endDate), "MMMM yyyy")}
+                  </p>
+                  <p className="text-muted" style={{ fontSize: "13px" }}>
+                    {experience.area}
+                  </p>
+                </div>
+              </Col>
+              <Col md={1}>
+                <Pencil
+                  onClick={() => {
+                    handleShow();
+                    setExp_Id(experience.exp_id);
+                  }}
+                />
+              </Col>
+            </Row>
+          ))}
+        </div>
+      </>
     </>
   );
 };

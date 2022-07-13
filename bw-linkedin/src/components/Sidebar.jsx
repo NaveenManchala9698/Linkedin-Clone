@@ -5,6 +5,7 @@ import {
   Dot,
   ChevronCompactDown,
 } from "react-bootstrap-icons";
+import SideBarProfilePic from "./SideBarProfilePic";
 
 const Sidebar = () => {
   const [profiles, setProfiles] = useState([]);
@@ -86,7 +87,9 @@ const Sidebar = () => {
           </Card.Title>
 
           {profiles.splice(0, showmore).map((profile) => (
-            <Row key={profile._id}>
+            <SideBarProfilePic profile={profile} />
+
+            /* <Row key={profile._id}>
               <Col sm={3}>
                 <Image
                   src={profile.image}
@@ -127,7 +130,7 @@ const Sidebar = () => {
                   </Button>
                 </div>
               </Col>
-            </Row>
+            </Row> */
           ))}
           <Row>
             <Col className="p-0">
@@ -165,47 +168,7 @@ const Sidebar = () => {
             People you may know
           </Card.Title>
           {profiles.splice(0, showmore1).map((profile) => (
-            <Row key={profile._id}>
-              <Col sm={3}>
-                <Image
-                  src={profile.image}
-                  rounded
-                  alt="pic"
-                  height="48px"
-                  width="48px"
-                />
-              </Col>
-              <Col sm={9}>
-                <div>
-                  <h6
-                    className="font-weight-bold mb-0"
-                    style={{ fontSize: "14px", lineHeight: "1.4" }}
-                  >
-                    {profile.name}
-                    <span className="text-muted font-weight-normal">
-                      <Dot /> 2nd
-                    </span>
-                  </h6>
-                  <h6
-                    className="text-muted"
-                    style={{ fontSize: "13px", lineHeight: "1.4" }}
-                  >
-                    {profile.title}
-                  </h6>
-                  <Button
-                    style={{
-                      borderRadius: "50px",
-                      fontSize: "16px",
-                      width: "100px",
-                    }}
-                    variant="outline-dark"
-                    className="font-weight-bold mb-2 text-muted p-1"
-                  >
-                    Connect
-                  </Button>
-                </div>
-              </Col>
-            </Row>
+            <SideBarProfilePic profile={profile} />
           ))}
           <Row>
             <Col className="p-0">
