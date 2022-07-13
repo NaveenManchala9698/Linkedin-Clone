@@ -271,13 +271,17 @@ const MyExperience = () => {
       </Modal>
 
       <div className="experience-div">
-        <div>
-          <h2 style={{ display: "inline", textAlign: "left" }}>Experience</h2>
-          <Plus
-            size="2.5rem"
-            onClick={handleShow}
-            style={{ cursor: "pointer", marginLeft: "40rem" }}
-          />
+        <div style={{ display: "flex" }}>
+          <div style={{ flexGrow: "1", textAlign: "left" }}>
+            <h2 style={{ display: "inline" }}>Experience</h2>
+          </div>
+          <div>
+            <Plus
+              size="2.5rem"
+              onClick={handleShow}
+              style={{ cursor: "pointer" }}
+            />
+          </div>
 
           {/* <Pencil
                         size="1.2rem"
@@ -286,7 +290,7 @@ const MyExperience = () => {
         </div>
         {experiences.map((experience) => (
           <Row>
-            <Col md={1} key={experience.user}>
+            <Col md={3} key={experience.user}>
               <div style={{ marginLeft: "12px", marginTop: "10px" }}>
                 <Image
                   src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
@@ -297,7 +301,7 @@ const MyExperience = () => {
               </div>
             </Col>
 
-            <Col md={10}>
+            <Col md={8}>
               <div style={{ textAlign: "left", marginLeft: "2.5rem" }}>
                 <h6
                   className="font-weight-bold my-1"

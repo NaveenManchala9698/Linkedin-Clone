@@ -67,7 +67,7 @@ const SearchBar = () => {
       {filteredData.length !== 0 && (
         <div
           style={{
-            position: "absolute",
+            position: "fixed",
             zIndex: "3",
           }} /* style={{marginTop: '33rem'}} */
         >

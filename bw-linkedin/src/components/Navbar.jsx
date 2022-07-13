@@ -18,6 +18,7 @@ import {
   Grid3x3GapFill,
   Search,
 } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 const Navbar = () => {
@@ -32,10 +33,10 @@ const Navbar = () => {
 
         <Col md={8} style={{ flexBasis: "fit-content", padding: "0" }}>
           <Nav className="nav-links my-2 mx-4">
-            <a href="#home" className="nav-text mr-3">
+            <Link to="/" className="nav-text mr-3">
               <HouseFill className="nav-icons" />
               <span>Home</span>
-            </a>
+            </Link>
             <a href="#network" className="nav-text mr-3">
               <PeopleFill className="nav-icons" />
               <span>My Network</span>

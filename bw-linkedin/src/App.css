@@ -24,9 +24,7 @@
   width: 100%;
   overflow: hidden;
   margin-left: 0 !important;
-
 }
-
 
 .search-list {
   /* position: fixed; */
@@ -129,7 +127,7 @@
   position: relative;
   border: 1px solid lightgrey;
   border-radius: 15px;
-  margin-top: 1rem;
+
   overflow: hidden;
   padding-bottom: 1.5rem;
   background-color: white;
@@ -192,8 +190,7 @@
   background-color: white;
 }
 
-
-.feed{
+.feed {
   background-color: white;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -201,17 +198,14 @@
   padding: 15px;
   margin-right: 15px;
 }
-.post{
+.post {
   border: 1px solid lightgray;
   border-radius: 35px;
   padding: 15px;
   background-color: inherit;
   width: 100%;
   margin-left: 0;
-
 }
-
-
 
 .Header {
   background-image: url("https://i.pinimg.com/originals/76/e9/23/76e9238fca30a0fc41b6f5fac75b516b.jpg");
