@@ -3,9 +3,8 @@ import { useState } from "react"
 import { Button, Modal } from "react-bootstrap"
 import { Pencil } from "react-bootstrap-icons"
 
-const ProfileEdit = () => {
+const ProfileEdit = ({profileData}) => {
 
-    const [data, setData] = useState([])
     const [options, setOptions] = useState({
         name: "",
         surname: "",
@@ -19,18 +18,15 @@ const ProfileEdit = () => {
     const handleShow = () => setShow(true);
 
     useEffect(() => {
-        fetchMyData()
+        
+        setOptions(profileData)
     }, [])
+
+
 
     const fetchMyData = async () => {
         try {
-            const options = {
-                name: document.getElementById('name').value,
-                surname: document.getElementById('surname').value,
-                title: document.getElementById('title').value,
-                area: document.getElementById('area').value,
-                bio: document.getElementById('bio').value,
-            }
+            
             const url = "https://striveschool-api.herokuapp.com/api/profile/"
 
             const response = await fetch(url,
@@ -44,8 +40,7 @@ const ProfileEdit = () => {
                 })
             if (response.ok) {
                 const MyData = await response.json()
-                console.log(MyData)
-                setData(MyData)
+              
             } else {
                 console.log("Error fetching Data!")
             }
@@ -69,31 +64,31 @@ const ProfileEdit = () => {
                     <label for="user-name" class="col-form-label">
                         Name
                     </label>
-                    <input className="inputs-modal" type="text" id="name" />
+                    <input value={options.name} onChange={(e)=> {setOptions({...options, name:e.target.value})}}className="inputs-modal" type="text" id="name" />
                 </Modal.Body>
                 <Modal.Body>
                     <label for="user-surname" class="col-form-label">
                         Surname
                     </label>
-                    <input className="inputs-modal" type="text" id="surname" />
+                    <input value={options.surname} onChange={(e)=> {setOptions({...options, surname:e.target.value})}} className="inputs-modal" type="text" id="surname" />
                 </Modal.Body>
                 <Modal.Body>
                     <label for="user-title" class="col-form-label">
                         Title
                     </label>
-                    <input className="inputs-modal" type="text" id="title" />
+                    <input value={options.title} onChange={(e)=> {setOptions({...options, title:e.target.value})}} className="inputs-modal" type="text" id="title" />
                 </Modal.Body>
                 <Modal.Body>
                     <label for="user-area" class="col-form-label">
                         Area
                     </label>
-                    <input className="inputs-modal" type="text" id="area" />
+                    <input value={options.area} onChange={(e)=> {setOptions({...options, area:e.target.value})}}className="inputs-modal" type="text" id="area" />
                 </Modal.Body>
-                <Modal.Body>
+                <Modal.Body> 
                     <label for="user-bio" class="col-form-label">
                         Bio
                     </label>
-                    <input className="inputs-modal" type="text" id="bio" />
+                    <input value={options.bio} onChange={(e)=> {setOptions({...options, bio:e.target.value})}}className="inputs-modal" type="text" id="bio" />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

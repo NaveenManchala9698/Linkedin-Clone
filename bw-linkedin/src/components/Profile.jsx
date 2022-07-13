@@ -4,6 +4,7 @@ import { Button, Container, Row } from 'react-bootstrap'
 import { Pencil, PencilFill } from 'react-bootstrap-icons'
 import ProfileEdit from './ProfileEdit'
 import MyExperience from './MyExperience'
+import StaticElements from './StaticElements'
 
 
 
@@ -54,6 +55,21 @@ const Profile = () => {
                 {
                     profileData && <>
                            {/*  <Pencil  className='profile-edit'/> */}
+
+                           <ProfileEdit profileData={profileData} className='profile-edit'/>
+                            <h2>{profileData.name} {profileData.surname}</h2>
+                            <h4>{profileData.title}</h4>
+                            <p>{profileData.area}. <a href='#' style={{ color: '#0a66c2' }}><b>Contact info</b></a></p>
+                            <a href='#' style={{ color: '#0a66c2' }}><b>Connections</b></a>
+                            <div className='mt-2'>
+                                <Button className='mr-2 profile-buttons' variant='primary'><b>Open To</b></Button>
+                                <Button className='mr-2 profile-buttons' variant='outline-primary'><b>Add Profile Section</b></Button>
+                                <Button className='mr-2 profile-buttons' variant='outline-secondary'><b>More</b></Button>
+                            </div>
+                        </>
+                    }
+                </div>
+
                            <ProfileEdit className='profile-edit'/>
                         <h2>{profileData.name} {profileData.surname}</h2>
                         <h4>{profileData.title}</h4>
@@ -67,6 +83,7 @@ const Profile = () => {
                     </>
                 }
             </div>
+
             </div>
             <div className="about mt-3" style={{backgroundColor: 'white'}}>
                 <h2>About</h2>
@@ -74,6 +91,9 @@ const Profile = () => {
             </div>
             <div>
                 <MyExperience/>
+            </div>
+            <div>
+                <StaticElements/>
             </div>
         </Container>
     )
