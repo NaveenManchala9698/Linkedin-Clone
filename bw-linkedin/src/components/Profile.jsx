@@ -44,29 +44,29 @@ const Profile = () => {
         <Container>
             <div className='main-section'>
                 <div style={{ width: '100%', position: 'relative' }}>
-                    <div className='bg'><img id='backgroundImage' src='https://i.pinimg.com/originals/76/e9/23/76e9238fca30a0fc41b6f5fac75b516b.jpg' alt='backgroundImage' /></div>
-    
-                    <img className='profile-img' src={profileData.image} alt='profileImage' />
-                </div>
-                <PencilFill className='bg-edit-icon' />
+                <div className='bg'><img id='backgroundImage' src='https://i.pinimg.com/originals/76/e9/23/76e9238fca30a0fc41b6f5fac75b516b.jpg' alt='backgroundImage' /></div>
+
+                <img className='profile-img' src={profileData.image} alt='profileImage' />
+            </div>
+            <PencilFill className='bg-edit-icon' />
                 
-                <div className='details'>
-                    {
-                        profileData && <>
+            <div className='details'>
+                {
+                    profileData && <>
                            {/*  <Pencil  className='profile-edit'/> */}
                            <ProfileEdit className='profile-edit'/>
-                            <h2>{profileData.name} {profileData.surname}</h2>
-                            <h4>{profileData.title}</h4>
-                            <p>{profileData.area}. <a href='#' style={{ color: '#0a66c2' }}><b>Contact info</b></a></p>
-                            <a href='#' style={{ color: '#0a66c2' }}><b>Connections</b></a>
-                            <div className='mt-2'>
-                                <Button className='mr-2 profile-buttons' variant='primary'><b>Open To</b></Button>
-                                <Button className='mr-2 profile-buttons' variant='outline-primary'><b>Add Profile Section</b></Button>
-                                <Button className='mr-2 profile-buttons' variant='outline-secondary'><b>More</b></Button>
-                            </div>
-                        </>
-                    }
-                </div>
+                        <h2>{profileData.name} {profileData.surname}</h2>
+                        <h4>{profileData.title}</h4>
+                        <p>{profileData.area}. <a href='#' style={{ color: '#0a66c2' }}><b>Contact info</b></a></p>
+                        <a href='#' style={{ color: '#0a66c2' }}><b>Connections</b></a>
+                        <div className='mt-2'>
+                            <Button className='mr-2 profile-buttons' variant='primary'><b>Open To</b></Button>
+                            <Button className='mr-2 profile-buttons' variant='outline-primary'><b>Add Profile Section</b></Button>
+                            <Button className='mr-2 profile-buttons' variant='outline-secondary'><b>More</b></Button>
+                        </div>
+                    </>
+                }
+            </div>
             </div>
             <div className="about mt-3" style={{backgroundColor: 'white'}}>
                 <h2>About</h2>
