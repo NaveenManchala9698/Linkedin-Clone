@@ -1,13 +1,15 @@
 import Footer from "../Footer"
-import Profile from "../Profile"
+import Feed from "../Feed"
 import Sidebar from "../Sidebar"
+import Post from "../Post"
 
 const Home = () => {
     return(
         <>
         <div className="d-flex hero-section">
           <div className="flex-grow-1">
-            <Profile />
+            <Post/>
+            <Feed/>
           </div>
           <div>
             <Sidebar />
