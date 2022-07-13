@@ -55,7 +55,7 @@ const Profile = () => {
                     {
                         profileData && <>
                            {/*  <Pencil  className='profile-edit'/> */}
-                           <ProfileEdit className='profile-edit'/>
+                           <ProfileEdit profileData={profileData} className='profile-edit'/>
                             <h2>{profileData.name} {profileData.surname}</h2>
                             <h4>{profileData.title}</h4>
                             <p>{profileData.area}. <a href='#' style={{ color: '#0a66c2' }}><b>Contact info</b></a></p>
