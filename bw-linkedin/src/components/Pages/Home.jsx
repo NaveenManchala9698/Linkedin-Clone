@@ -1,5 +1,5 @@
 import Footer from "../Footer"
-import Profile from "../Profile"
+import Feed from "../Feed"
 import Sidebar from "../Sidebar"
 
 const Home = () => {
@@ -7,7 +7,7 @@ const Home = () => {
         <>
         <div className="d-flex hero-section">
           <div className="flex-grow-1">
-            <Profile />
+            <Feed/>
           </div>
           <div>
             <Sidebar />
