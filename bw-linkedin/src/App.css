@@ -199,12 +199,34 @@
   margin-right: 15px;
 }
 .post {
-  border: 1px solid lightgray;
+  border: 1px solid grey;
   border-radius: 35px;
   padding: 15px;
   background-color: inherit;
   width: 100%;
   margin-left: 0;
+  cursor: pointer;
+  height: 45px;
+  margin-top: 5px;
+}
+
+.post:hover {
+  background-color: lightgray;
+}
+
+.postFeed-btn {
+  border-radius: 40px !important;
+}
+
+.feed-edit-icon {
+  color: rgb(16, 16, 16);
+  font-size: 25px;
+}
+
+.feed-edit-icon:hover {
+  background-color: #e9e5df;
+  border-radius: 50%;
+  padding: 1px;
 }
 
 .Header {

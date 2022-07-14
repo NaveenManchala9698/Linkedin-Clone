@@ -97,8 +97,14 @@ const Post = () => {
                 }
               />
             </Col>
-            <Col xs={2} className="mt-2">
-              <Button onClick={postFeed}>POST</Button>
+            <Col xs={2} className="mt-2 px-0">
+              <Button
+                onClick={postFeed}
+                className="postFeed-btn font-weight-bold"
+                variant="primary"
+              >
+                POST
+              </Button>
             </Col>
           </Row>
           <Row>

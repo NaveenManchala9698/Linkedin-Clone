@@ -32,7 +32,7 @@ export default function SideBarProfilePic({ profile }) {
               ? profile.image
               : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
           }
-          rounded
+          style={{ borderRadius: "50%" }}
           alt="pic"
           height="48px"
           width="48px"
