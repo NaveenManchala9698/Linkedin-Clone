@@ -1,10 +1,10 @@
-
 import {
   Arrow90degRight,
   ChatText,
   HandThumbsUp,
   PencilFill,
   SendFill,
+  ThreeDots,
 } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
@@ -137,6 +137,7 @@ const Feed = () => {
             onClick={() => {
               handleClose();
               deletePost();
+              fetchFeed();
             }}
           >
             Delete
@@ -146,6 +147,7 @@ const Feed = () => {
             onClick={() => {
               handleClose();
               changePost();
+              fetchFeed();
             }}
           >
             Save Changes
@@ -199,7 +201,8 @@ const Feed = () => {
 
                         <Col xs={1}>
                           {eachFeed.user._id === "62cbf64be6c0300015918145" ? (
-                            <PencilFill
+                            <ThreeDots
+                              className="feed-edit-icon"
                               onClick={() => {
                                 handleShow();
                                 setCurrentPostID(eachFeed._id);

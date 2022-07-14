@@ -1,4 +1,3 @@
-import Footer from "../Footer";
 import Feed from "../Feed";
 import Sidebar from "../Sidebar";
 import Post from "../Post";
@@ -11,7 +10,7 @@ const Home = () => {
         <div>
           <NewsFeedProfile />
         </div>
-        <div className="flex-grow-1">
+        <div className="flex-grow-1" style={{ maxWidth: "35rem" }}>
           <Post />
           <Feed />
         </div>

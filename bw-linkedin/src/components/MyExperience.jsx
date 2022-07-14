@@ -253,6 +253,7 @@ const MyExperience = () => {
                 onClick={() => {
                   handleClose();
                   submitExperience();
+                  fetchExperience();
                 }}
               >
                 Save
@@ -364,6 +365,7 @@ const MyExperience = () => {
                 onClick={() => {
                   changeExperience();
                   modalClose();
+                  fetchExperience();
                 }}
               >
                 Edit
@@ -375,6 +377,7 @@ const MyExperience = () => {
                 onClick={() => {
                   deleteExperience();
                   modalClose();
+                  fetchExperience();
                 }}
               >
                 Delete

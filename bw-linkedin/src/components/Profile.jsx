@@ -19,6 +19,8 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
+  // GET MY PROFILE
+
   const fetchProfile = async () => {
     try {
       const url = "https://striveschool-api.herokuapp.com/api/profile/me";
@@ -40,8 +42,6 @@ const Profile = () => {
       console.log(error);
     }
   };
-
-
 
   const uploadImage = async (e) => {
     e.preventDefault();
@@ -96,7 +96,10 @@ const Profile = () => {
               <>
                 {/*  <Pencil  className='profile-edit'/> */}
 
-                <ProfileEdit profileData={profileData} className="profile-edit" />
+                <ProfileEdit
+                  profileData={profileData}
+                  className="profile-edit"
+                />
                 <h2>
                   {profileData.name} {profileData.surname}
                 </h2>
@@ -161,11 +164,7 @@ const Profile = () => {
                 type="file"
                 onChange={(e) => setShowImage(e.target.files[0])}
               />
-              <Button
-                variant="primary"
-                onClick={handleClose2}
-                type="submit"
-              >
+              <Button variant="primary" onClick={handleClose2} type="submit">
                 Post Image
               </Button>
             </form>
@@ -173,9 +172,7 @@ const Profile = () => {
         </Modal>
       </div>
     </>
-
-
   );
-}
+};
 
 export default Profile;

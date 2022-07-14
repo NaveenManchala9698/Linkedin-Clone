@@ -32,13 +32,13 @@ export default function SideBarProfilePic({ profile }) {
               ? profile.image
               : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
           }
-          rounded
+          style={{ borderRadius: "50%" }}
           alt="pic"
           height="48px"
           width="48px"
         />
       </Col>
-      <Col sm={9}>
+      <Col sm={9} style={{ textAlign: "left" }}>
         {" "}
         {/* "/profile/" + profile._id */}
         <div>
@@ -65,8 +65,8 @@ export default function SideBarProfilePic({ profile }) {
               fontSize: "16px",
               width: "100px",
             }}
-            variant="outline-dark"
-            className="font-weight-bold mb-2 text-muted p-1"
+            variant="outline-secondary"
+            className="font-weight-bold mb-2 p-1"
           >
             Connect
           </Button>

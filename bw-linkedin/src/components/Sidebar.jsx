@@ -58,7 +58,10 @@ const Sidebar = () => {
   return (
     <>
       <Card
-        style={{ width: "18rem", borderRadius: "15px" }}
+        style={{
+          maxWidth: "18rem",
+          borderRadius: "15px",
+        }}
         className="mb-2 mt-2"
       >
         <Card.Body>
@@ -80,9 +83,18 @@ const Sidebar = () => {
 
       {/* Section - People also Viewed */}
 
-      <Card style={{ width: "18rem", borderRadius: "15px" }} className="mb-2">
+      <Card
+        style={{
+          width: "18rem",
+          borderRadius: "15px",
+        }}
+        className="mb-2"
+      >
         <Card.Body>
-          <Card.Title className="font-weight-bold" style={{ fontSize: "16px" }}>
+          <Card.Title
+            className="font-weight-bold mb-4"
+            style={{ fontSize: "18px", textAlign: "left" }}
+          >
             People also viewed
           </Card.Title>
 
@@ -164,7 +176,10 @@ const Sidebar = () => {
 
       <Card style={{ width: "18rem", borderRadius: "15px" }} className="mb-3">
         <Card.Body>
-          <Card.Title className="font-weight-bold" style={{ fontSize: "16px" }}>
+          <Card.Title
+            className="font-weight-bold mb-4"
+            style={{ fontSize: "18px", textAlign: "left" }}
+          >
             People you may know
           </Card.Title>
           {profiles.splice(0, showmore1).map((profile) => (
