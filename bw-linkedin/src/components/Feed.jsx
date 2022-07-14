@@ -2,10 +2,7 @@ import {
   Arrow90degRight,
   ChatText,
   HandThumbsUp,
-
   PencilFill,
-  PenFill,
-
   SendFill,
 } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
@@ -22,14 +19,7 @@ const Feed = () => {
   });
   const [currentPostID, setCurrentPostID] = useState(null);
 
-
-
-const Feed = () => {
-  const [feed, setFeed] = useState([]);
-
-
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -37,7 +27,7 @@ const Feed = () => {
     fetchFeed();
   }, []);
 
-
+  //Get
   const fetchFeed = async () => {
     try {
       const url = "https://striveschool-api.herokuapp.com/api/posts/";
@@ -96,23 +86,12 @@ const Feed = () => {
     try {
       const options = {
         method: "DELETE",
-
-  // GET FEED
-
-  const fetchFeed = async () => {
-    try {
-      const url = "https://striveschool-api.herokuapp.com/api/posts/";
-
-      const response = await fetch(url, {
-
         headers: {
           "Content-Type": "application/json",
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZjY0YmU2YzAzMDAwMTU5MTgxNDUiLCJpYXQiOjE2NTc1MzQwMjcsImV4cCI6MTY1ODc0MzYyN30.CB7NDDp16Z2r4LEBmGrsgrwMVNQI6vKZ1_ERAXJtQyU",
         },
-
       };
-
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/posts/" + currentPostID,
         options
@@ -121,17 +100,6 @@ const Feed = () => {
         console.log("Deleted Successfully.");
       } else {
         console.log("Error!!");
-
-      });
-      if (response.ok) {
-        const news = await response.json();
-
-        console.log(news);
-        setFeed(news);
-      } else {
-        const msg = response.text;
-        console.log(msg);
-
       }
     } catch (error) {
       console.log(error);
@@ -140,54 +108,49 @@ const Feed = () => {
 
   return (
     <>
-
-      <>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Edit Post</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form onSubmit={changePost}>
-              <Form.Group>
-                <Form.Label>Edit Text</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={editPost.text}
-                  onChange={(e) =>
-                    setEditPost({ ...editPost, text: e.target.value })
-                  }
-                />
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button
-              variant="danger"
-              type="submit"
-              onClick={() => {
-                handleClose();
-                deletePost();
-              }}
-            >
-              Delete
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => {
-                handleClose();
-                changePost();
-              }}
-            >
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-
-
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Post</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={changePost}>
+            <Form.Group>
+              <Form.Label>Edit Text</Form.Label>
+              <Form.Control
+                type="text"
+                value={editPost.text}
+                onChange={(e) =>
+                  setEditPost({ ...editPost, text: e.target.value })
+                }
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button
+            variant="danger"
+            type="submit"
+            onClick={() => {
+              handleClose();
+              deletePost();
+            }}
+          >
+            Delete
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              handleClose();
+              changePost();
+            }}
+          >
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
       {feed &&
         feed
           .reverse()
@@ -195,11 +158,7 @@ const Feed = () => {
           .map((eachFeed) => {
             if (eachFeed.user) {
               return (
-
                 <div className="feed" key={eachFeed._id}>
-
-                <div className="feed">
-
                   <div>
                     <Container>
                       <Row>
@@ -216,7 +175,6 @@ const Feed = () => {
                           />
                         </Col>
                         <Col
-
                           xs={9}
                           className="text-left pl-0 mt-1"
                           style={{ lineHeight: "2px" }}
@@ -229,14 +187,6 @@ const Feed = () => {
                               {eachFeed.user.name} {eachFeed.user.surname}
                             </h6>
                           </Link>
-
-                          xs={10}
-                          className="text-left pl-0 mt-1"
-                          style={{ lineHeight: "2px" }}
-                        >
-                          <h6>
-                            {eachFeed.user.name} {eachFeed.user.surname}
-                          </h6>
 
                           <p style={{ fontSize: "10px" }}>
                             {eachFeed.user.title}
@@ -258,7 +208,6 @@ const Feed = () => {
                             ""
                           )}
                         </Col>
-
                       </Row>
                       <Row>
                         <Col className="text-left mt-1">
@@ -301,14 +250,6 @@ const Feed = () => {
                       </Row>
                     </Container>
                   </div>
-                  {/*<h6 style={{ textAlign: "left" }}>{eachFeed.user.name} {eachFeed.user.surname}</h6>
-
-                    
-                    <p style={{ textAlign: "left" }}>{eachFeed.text}</p>*/}
-
-                          
-                          <p style={{ textAlign: "left" }}>{eachFeed.text}</p>*/}
-
                 </div>
               );
             }
