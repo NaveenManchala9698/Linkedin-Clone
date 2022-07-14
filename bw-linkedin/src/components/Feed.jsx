@@ -2,13 +2,16 @@ import {
   Arrow90degRight,
   ChatText,
   HandThumbsUp,
+
   PencilFill,
   PenFill,
+
   SendFill,
 } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
 import { format, parseISO } from "date-fns";
+
 import { Link } from "react-router-dom";
 
 const Feed = () => {
@@ -19,6 +22,12 @@ const Feed = () => {
   });
   const [currentPostID, setCurrentPostID] = useState(null);
 
+
+
+const Feed = () => {
+  const [feed, setFeed] = useState([]);
+
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -27,6 +36,7 @@ const Feed = () => {
   useEffect(() => {
     fetchFeed();
   }, []);
+
 
   const fetchFeed = async () => {
     try {
@@ -86,11 +96,21 @@ const Feed = () => {
     try {
       const options = {
         method: "DELETE",
+
+  // GET FEED
+
+  const fetchFeed = async () => {
+    try {
+      const url = "https://striveschool-api.herokuapp.com/api/posts/";
+
+      const response = await fetch(url, {
+
         headers: {
           "Content-Type": "application/json",
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZjY0YmU2YzAzMDAwMTU5MTgxNDUiLCJpYXQiOjE2NTc1MzQwMjcsImV4cCI6MTY1ODc0MzYyN30.CB7NDDp16Z2r4LEBmGrsgrwMVNQI6vKZ1_ERAXJtQyU",
         },
+
       };
 
       const response = await fetch(
@@ -101,6 +121,17 @@ const Feed = () => {
         console.log("Deleted Successfully.");
       } else {
         console.log("Error!!");
+
+      });
+      if (response.ok) {
+        const news = await response.json();
+
+        console.log(news);
+        setFeed(news);
+      } else {
+        const msg = response.text;
+        console.log(msg);
+
       }
     } catch (error) {
       console.log(error);
@@ -109,6 +140,7 @@ const Feed = () => {
 
   return (
     <>
+
       <>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -155,6 +187,7 @@ const Feed = () => {
         </Modal>
       </>
 
+
       {feed &&
         feed
           .reverse()
@@ -162,7 +195,11 @@ const Feed = () => {
           .map((eachFeed) => {
             if (eachFeed.user) {
               return (
+
                 <div className="feed" key={eachFeed._id}>
+
+                <div className="feed">
+
                   <div>
                     <Container>
                       <Row>
@@ -179,6 +216,7 @@ const Feed = () => {
                           />
                         </Col>
                         <Col
+
                           xs={9}
                           className="text-left pl-0 mt-1"
                           style={{ lineHeight: "2px" }}
@@ -191,6 +229,15 @@ const Feed = () => {
                               {eachFeed.user.name} {eachFeed.user.surname}
                             </h6>
                           </Link>
+
+                          xs={10}
+                          className="text-left pl-0 mt-1"
+                          style={{ lineHeight: "2px" }}
+                        >
+                          <h6>
+                            {eachFeed.user.name} {eachFeed.user.surname}
+                          </h6>
+
                           <p style={{ fontSize: "10px" }}>
                             {eachFeed.user.title}
                           </p>
@@ -211,6 +258,7 @@ const Feed = () => {
                             ""
                           )}
                         </Col>
+
                       </Row>
                       <Row>
                         <Col className="text-left mt-1">
@@ -254,8 +302,13 @@ const Feed = () => {
                     </Container>
                   </div>
                   {/*<h6 style={{ textAlign: "left" }}>{eachFeed.user.name} {eachFeed.user.surname}</h6>
+
                     
                     <p style={{ textAlign: "left" }}>{eachFeed.text}</p>*/}
+
+                          
+                          <p style={{ textAlign: "left" }}>{eachFeed.text}</p>*/}
+
                 </div>
               );
             }
