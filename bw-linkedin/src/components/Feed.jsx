@@ -7,11 +7,21 @@ import {
   SendFill,
 } from "react-bootstrap-icons";
 import { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
 import { format, parseISO } from "date-fns";
 
 const Feed = () => {
   const [feed, setFeed] = useState([]);
+
+  const [editPost, setEditPost] = useState({
+    text: "",
+  });
+  const [currentPostID, setCurrentPostID] = useState(null);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     fetchFeed();
@@ -42,8 +52,108 @@ const Feed = () => {
     }
   };
 
+  // PUT POST
+
+  const changePost = async () => {
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/" + currentPostID,
+        {
+          method: "PUT",
+          body: JSON.stringify(editPost),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZjY0YmU2YzAzMDAwMTU5MTgxNDUiLCJpYXQiOjE2NTc1MzQwMjcsImV4cCI6MTY1ODc0MzYyN30.CB7NDDp16Z2r4LEBmGrsgrwMVNQI6vKZ1_ERAXJtQyU",
+          },
+        }
+      );
+      if (response.ok) {
+        let resData = await response.json();
+        console.log("Edited Successfully");
+      } else {
+        console.log("ERROR!");
+      }
+    } catch (error) {
+      console.log("Error!");
+    }
+  };
+
+  //Delete Method
+
+  const deletePost = async () => {
+    try {
+      const options = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZjY0YmU2YzAzMDAwMTU5MTgxNDUiLCJpYXQiOjE2NTc1MzQwMjcsImV4cCI6MTY1ODc0MzYyN30.CB7NDDp16Z2r4LEBmGrsgrwMVNQI6vKZ1_ERAXJtQyU",
+        },
+      };
+
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/" + currentPostID,
+        options
+      );
+      if (response.ok) {
+        console.log("Deleted Successfully.");
+      } else {
+        console.log("Error!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
+      <>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit Post</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form onSubmit={changePost}>
+              <Form.Group>
+                <Form.Label>Edit Text</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={editPost.text}
+                  onChange={(e) =>
+                    setEditPost({ ...editPost, text: e.target.value })
+                  }
+                />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button
+              variant="danger"
+              type="submit"
+              onClick={() => {
+                handleClose();
+                deletePost();
+              }}
+            >
+              Delete
+            </Button>
+            <Button
+              variant="primary"
+              onClick={() => {
+                handleClose();
+                changePost();
+              }}
+            >
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+
       {feed &&
         feed
           .reverse()
@@ -51,7 +161,7 @@ const Feed = () => {
           .map((eachFeed) => {
             if (eachFeed.user) {
               return (
-                <div className="feed">
+                <div className="feed" key={eachFeed._id}>
                   <div>
                     <Container>
                       <Row>
@@ -85,7 +195,12 @@ const Feed = () => {
 
                         <Col xs={1}>
                           {eachFeed.user._id === "62cbf64be6c0300015918145" ? (
-                            <PencilFill />
+                            <PencilFill
+                              onClick={() => {
+                                handleShow();
+                                setCurrentPostID(eachFeed._id);
+                              }}
+                            />
                           ) : (
                             ""
                           )}
