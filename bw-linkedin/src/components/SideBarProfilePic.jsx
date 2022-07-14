@@ -42,7 +42,7 @@ export default function SideBarProfilePic({ profile }) {
         {" "}
         {/* "/profile/" + profile._id */}
         <div>
-          <Link to={`/user/${profile._id}`}>
+          <Link to={`/user/${profile._id}`} style={{ color: "black" }}>
             <h6
               className="font-weight-bold mb-0"
               style={{ fontSize: "14px", lineHeight: "1.4" }}

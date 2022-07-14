@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Modal, Form } from "react-bootstrap";
 import { format, parseISO } from "date-fns";
+import { Link } from "react-router-dom";
 
 const Feed = () => {
   const [feed, setFeed] = useState([]);
@@ -182,9 +183,14 @@ const Feed = () => {
                           className="text-left pl-0 mt-1"
                           style={{ lineHeight: "2px" }}
                         >
-                          <h6>
-                            {eachFeed.user.name} {eachFeed.user.surname}
-                          </h6>
+                          <Link
+                            to={`/user/${eachFeed.user._id}`}
+                            style={{ color: "black" }}
+                          >
+                            <h6>
+                              {eachFeed.user.name} {eachFeed.user.surname}
+                            </h6>
+                          </Link>
                           <p style={{ fontSize: "10px" }}>
                             {eachFeed.user.title}
                           </p>

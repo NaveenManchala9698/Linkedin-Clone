@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router";
 import { Container, Button } from "react-bootstrap";
 import { Bell } from "react-bootstrap-icons";
+import CurrentProfileExp from "./CurrentProfileExp";
 
 const CurrentProfile = () => {
   const [currentProfileData, setCurrentProfileData] = useState({});
@@ -87,9 +88,12 @@ const CurrentProfile = () => {
           )}
         </div>
       </div>
-      <div className="about mt-3">
+      <div className="about mt-3 mb-3" style={{ backgroundColor: "white" }}>
         <h2>About</h2>
         <p>{currentProfileData.bio}</p>
+      </div>
+      <div>
+        <CurrentProfileExp userId={userId} />
       </div>
     </Container>
   );
