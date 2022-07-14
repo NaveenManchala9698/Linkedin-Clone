@@ -66,6 +66,9 @@ const SearchBar = ({ user }) => {
     <div>
       <div>
         <InputGroup
+          style={{
+            marginTop: "6px",
+          }}
           onClick={() => onInputClick(false)}
           type="text"
           value={query}
