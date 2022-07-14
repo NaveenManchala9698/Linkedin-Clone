@@ -1,4 +1,3 @@
-
 import {
   Arrow90degRight,
   ChatText,
@@ -137,6 +136,7 @@ const Feed = () => {
             onClick={() => {
               handleClose();
               deletePost();
+              fetchFeed();
             }}
           >
             Delete
@@ -146,6 +146,7 @@ const Feed = () => {
             onClick={() => {
               handleClose();
               changePost();
+              fetchFeed();
             }}
           >
             Save Changes
