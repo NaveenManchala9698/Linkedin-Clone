@@ -38,8 +38,8 @@ const NewsFeedProfile = () => {
           border: "0.1px solid #e0dfdc",
           borderRadius: "15px",
           overflow: "hidden",
-          marginRight: "15px",
-          marginTop: "10px",
+          margin: "10px 15px",
+          maxWidth: "18rem",
         }}
       >
         <div
@@ -125,8 +125,7 @@ const NewsFeedProfile = () => {
           border: "0.1px solid #e0dfdc",
           borderRadius: "15px",
           overflow: "hidden",
-          marginTop: "10px",
-          marginRight: "15px",
+          margin: "10px 15px",
           textAlign: "left",
           padding: "15px",
         }}

@@ -38,7 +38,7 @@ export default function SideBarProfilePic({ profile }) {
           width="48px"
         />
       </Col>
-      <Col sm={9}>
+      <Col sm={9} style={{ textAlign: "left" }}>
         {" "}
         {/* "/profile/" + profile._id */}
         <div>
@@ -65,8 +65,8 @@ export default function SideBarProfilePic({ profile }) {
               fontSize: "16px",
               width: "100px",
             }}
-            variant="outline-dark"
-            className="font-weight-bold mb-2 text-muted p-1"
+            variant="outline-secondary"
+            className="font-weight-bold mb-2 p-1"
           >
             Connect
           </Button>
