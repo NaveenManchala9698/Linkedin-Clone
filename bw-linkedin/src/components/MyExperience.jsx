@@ -3,11 +3,7 @@ import { Modal, Form, Button, Row, Col, Image } from "react-bootstrap";
 import { Pencil, Plus } from "react-bootstrap-icons";
 import { parseISO, format } from "date-fns";
 
-import { useParams } from "react-router-dom";
-
 const MyExperience = () => {
-  const [exp_id, setExp_Id] = useState(null);
-  const [experiences, setExperiences] = useState([]);
   const [addExperience, setAddExperience] = useState({
     role: "",
     company: "",
@@ -25,6 +21,9 @@ const MyExperience = () => {
     area: "",
   });
 
+  const [experiences, setExperiences] = useState([]);
+  const [currentExpID, setCurrentExpID] = useState(null);
+
   useEffect(() => {
     fetchExperience();
   }, []);
@@ -32,6 +31,10 @@ const MyExperience = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [open, setOpen] = useState(false);
+  const modalClose = () => setOpen(false);
+  const modalShow = () => setOpen(true);
 
   // GET EXPERIENCE
 
@@ -97,19 +100,11 @@ const MyExperience = () => {
 
   const changeExperience = async (e) => {
     e.preventDefault();
-    try {
-      /* const experienceDetails = {
-        role: document.getElementById("role").value,
-        company: document.getElementById("company").value,
-        startDate: document.getElementById("startdate").value,
-        endDate: document.getElementById("enddate").value,
-        description: document.getElementById("description").value,
-        area: document.getElementById("area").value,
-      }; */
 
+    try {
       let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/62cbf64be6c0300015918145/experiences/" +
-          exp_id,
+          currentExpID,
         {
           method: "PUT",
           body: JSON.stringify(editExperience),
@@ -122,14 +117,12 @@ const MyExperience = () => {
       );
       if (response.ok) {
         let resData = await response.json();
-        console.log(resData);
-        alert("ok");
-        setEditExperience(resData);
+        console.log("Edited Successfully");
       } else {
-        alert("error");
+        console.log("ERROR!");
       }
     } catch (error) {
-      alert("error", error);
+      console.log("Error!");
     }
   };
 
@@ -148,12 +141,12 @@ const MyExperience = () => {
       };
 
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/62cbf64be6c0300015918145/experiences/62ce7882108e6e0015bc099f",
+        "https://striveschool-api.herokuapp.com/api/profile/62cbf64be6c0300015918145/experiences/" +
+          currentExpID,
         options
       );
       if (response.ok) {
-        const resData = await response.json();
-        console.log(resData);
+        console.log("Deleted Successfully.");
       }
     } catch (error) {
       console.log(error);
@@ -256,16 +249,7 @@ const MyExperience = () => {
               <Button
                 variant="primary"
                 type="submit"
-                onClick={() => {
-                  changeExperience();
-                  /*  editExperience(experiences); */
-                }}
-              >
-                Edit
-              </Button>
-              <Button
-                variant="primary"
-                type="submit"
+                style={{ marginRight: "1rem" }}
                 onClick={() => {
                   handleClose();
                   submitExperience();
@@ -273,7 +257,126 @@ const MyExperience = () => {
               >
                 Save
               </Button>
-              <Button variant="danger" type="submit" onClick={deleteExperience}>
+            </Form>
+          </Modal.Body>
+        </Modal>
+
+        <Modal
+          show={open}
+          onHide={modalClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Edit experience</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+            <Form onSubmit={changeExperience}>
+              <Form.Group>
+                <Form.Label>Role* </Form.Label>
+                <Form.Control
+                  type="text"
+                  value={editExperience.role}
+                  onChange={(e) =>
+                    setEditExperience({
+                      ...editExperience,
+                      role: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Company*</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={editExperience.company}
+                  onChange={(e) =>
+                    setEditExperience({
+                      ...editExperience,
+                      company: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Start Date*</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={editExperience.startDate}
+                  onChange={(e) =>
+                    setEditExperience({
+                      ...editExperience,
+                      startDate: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>End Date*</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={editExperience.endDate}
+                  onChange={(e) =>
+                    setEditExperience({
+                      ...editExperience,
+                      endDate: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Description*</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={editExperience.description}
+                  onChange={(e) =>
+                    setEditExperience({
+                      ...editExperience,
+                      description: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Area*</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={editExperience.area}
+                  onChange={(e) =>
+                    setEditExperience({
+                      ...editExperience,
+                      area: e.target.value,
+                    })
+                  }
+                />
+              </Form.Group>
+
+              <Button
+                variant="primary"
+                type="submit"
+                style={{ marginRight: "1rem" }}
+                onClick={() => {
+                  changeExperience();
+                  modalClose();
+                }}
+              >
+                Edit
+              </Button>
+
+              <Button
+                variant="danger"
+                type="submit"
+                onClick={() => {
+                  deleteExperience();
+                  modalClose();
+                }}
+              >
                 Delete
               </Button>
             </Form>
@@ -292,14 +395,9 @@ const MyExperience = () => {
                 style={{ cursor: "pointer" }}
               />
             </div>
-
-            {/* <Pencil
-                  size="1.2rem"
-                  onClick={handleShow}
-                  style={{ cursor: "pointer", marginLeft: "45rem", marginTop: '-4rem' }} /> */}
           </div>
           {experiences.map((experience) => (
-            <Row>
+            <Row className="mt-2">
               <Col md={2} key={experience.user}>
                 <div
                   style={{
@@ -344,8 +442,8 @@ const MyExperience = () => {
               <Col md={1}>
                 <Pencil
                   onClick={() => {
-                    handleShow();
-                    setExp_Id(experience.exp_id);
+                    modalShow();
+                    setCurrentExpID(experience._id);
                   }}
                 />
               </Col>

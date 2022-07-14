@@ -86,7 +86,9 @@ const SearchBar = ({ user }) => {
                       style={{
                         textAlign: "left",
                       }}
-                      onClick={() => onInputClick(true)}
+                      onClick={() => {
+                        onInputClick(true);
+                      }}
                     >
                       <img
                         style={{
