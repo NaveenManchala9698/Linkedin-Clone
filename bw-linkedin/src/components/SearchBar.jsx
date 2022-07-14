@@ -8,18 +8,22 @@ const SearchBar = ({ user }) => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [clicked, setClicked] = useState(false);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const handleFilter = (event) => {
-    const profileSearched = event.target.value;
+  useEffect(() => {
+    handleFilter(query);
+  }, [query]);
+
+  const handleFilter = (query) => {
     const newFilter = data.filter((value) => {
-      return value.name.toLowerCase().includes(profileSearched.toLowerCase());
+      return value.name.toLowerCase().includes(query.toLowerCase());
     });
 
-    if (profileSearched.length > 0) {
+    if (query.length > 0) {
       setFilteredData(newFilter);
     } else {
       setFilteredData([]);
@@ -64,7 +68,10 @@ const SearchBar = ({ user }) => {
         <InputGroup
           onClick={() => onInputClick(false)}
           type="text"
-          onChange={handleFilter}
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
         >
           <Form.Control placeholder="Search" />
         </InputGroup>
@@ -81,7 +88,13 @@ const SearchBar = ({ user }) => {
             return (
               <ListGroup className="search-list">
                 <div>
-                  <Link to={`/user/${data._id}`}>
+                  <Link
+                    onClick={() => {
+                      setQuery("");
+                      setFilteredData([]);
+                    }}
+                    to={`/user/${data._id}`}
+                  >
                     <ListGroup.Item
                       style={{
                         textAlign: "left",

@@ -6,8 +6,8 @@ const CurrentProfileExp = ({ userId }) => {
   const [userExp, setUserExp] = useState([]);
 
   useEffect(() => {
-    fetchCurrentProfile();
-  }, []);
+    fetchCurrentProfile(userId);
+  }, [userId]);
 
   // GET EXPERIENCE
 
@@ -41,44 +41,45 @@ const CurrentProfileExp = ({ userId }) => {
           <h2 style={{ display: "inline" }}>Experience</h2>
         </div>
       </div>
-
-      <Row className="mt-2">
-        <Col md={2} key={CurrentProfileExp.user}>
-          <div
-            style={{
-              marginRight: "12px",
-              marginTop: "12px",
-            }}
-          >
-            <Image
-              src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
-              alt="profile-picture"
-              height="48px"
-              width="48px"
-            />
-          </div>
-        </Col>
-
-        <Col md={10}>
-          <div style={{ textAlign: "left", paddingLeft: "0" }}>
-            <h6
-              className="font-weight-bold my-1"
+      {userExp.map((eachExp) => (
+        <Row className="mt-2">
+          <Col md={1} key={eachExp.user}>
+            <div
               style={{
-                fontSize: "20px",
+                marginRight: "12px",
+                marginTop: "12px",
               }}
             >
-              {CurrentProfileExp.role}
-            </h6>
-            <p className="my-1" style={{ fontSize: "15px" }}>
-              {CurrentProfileExp.company} . Full-time
-            </p>
+              <Image
+                src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+                alt="profile-picture"
+                height="48px"
+                width="48px"
+              />
+            </div>
+          </Col>
 
-            <p className="text-muted" style={{ fontSize: "13px" }}>
-              {CurrentProfileExp.area}
-            </p>
-          </div>
-        </Col>
-      </Row>
+          <Col md={11} className="mb-3 px-0">
+            <div style={{ textAlign: "left", paddingLeft: "0" }}>
+              <h6
+                className="font-weight-bold my-1"
+                style={{
+                  fontSize: "20px",
+                }}
+              >
+                {eachExp.role}
+              </h6>
+              <p className="my-1" style={{ fontSize: "15px" }}>
+                {eachExp.company} . Full-time
+              </p>
+
+              <p className="text-muted" style={{ fontSize: "13px" }}>
+                {eachExp.area}
+              </p>
+            </div>
+          </Col>
+        </Row>
+      ))}
     </div>
   );
 };
