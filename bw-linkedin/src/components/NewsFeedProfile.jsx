@@ -81,7 +81,7 @@ const NewsFeedProfile = () => {
               <Col>
                 <div className="jumbotron-body">
                   <h5 className="my-2">
-                    <Link to="/profile">
+                    <Link to="/profile" style={{ color: "black" }}>
                       {profile.name} {profile.surname}
                     </Link>
                   </h5>

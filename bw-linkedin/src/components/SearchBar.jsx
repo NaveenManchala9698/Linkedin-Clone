@@ -2,23 +2,28 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Form, InputGroup, ListGroup } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
+import { Link, useNavigate } from "react-router-dom";
 
-const SearchBar = () => {
+const SearchBar = ({ user }) => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [clicked, setClicked] = useState(false);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const handleFilter = (event) => {
-    const profileSearched = event.target.value;
+  useEffect(() => {
+    handleFilter(query);
+  }, [query]);
+
+  const handleFilter = (query) => {
     const newFilter = data.filter((value) => {
-      return value.name.toLowerCase().includes(profileSearched.toLowerCase());
+      return value.name.toLowerCase().includes(query.toLowerCase());
     });
 
-    if (profileSearched.length > 0) {
+    if (query.length > 0) {
       setFilteredData(newFilter);
     } else {
       setFilteredData([]);
@@ -28,6 +33,11 @@ const SearchBar = () => {
   const onInputClick = (wasItClicked) => {
     console.log(clicked);
     setClicked(wasItClicked);
+  };
+
+  const navigate = useNavigate();
+  const goToProfile = () => {
+    navigate("/CurrentProfile/" + user._id);
   };
 
   const fetchData = async () => {
@@ -58,7 +68,10 @@ const SearchBar = () => {
         <InputGroup
           onClick={() => onInputClick(false)}
           type="text"
-          onChange={handleFilter}
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
         >
           <Form.Control placeholder="Search" />
         </InputGroup>
@@ -75,28 +88,39 @@ const SearchBar = () => {
             return (
               <ListGroup className="search-list">
                 <div>
-                  <ListGroup.Item
-                    style={{
-                      textAlign: "left",
+                  <Link
+                    onClick={() => {
+                      setQuery("");
+                      setFilteredData([]);
                     }}
-                    onClick={() => onInputClick(true)}
+                    to={`/user/${data._id}`}
                   >
-                    <img
+                    <ListGroup.Item
                       style={{
-                        width: "25px",
-                        height: "25px",
-                        borderRadius: "50%",
+                        textAlign: "left",
                       }}
-                      src={data.image}
-                      alt=""
-                    />
-                    <span
-                      className="ml-2"
-                      style={{ color: "black", fontSize: "14px" }}
+                      onClick={() => {
+                        onInputClick(true);
+                      }}
                     >
-                      <strong>{data.name}</strong>
-                    </span>
-                  </ListGroup.Item>
+                      <img
+                        style={{
+                          width: "25px",
+                          height: "25px",
+                          borderRadius: "50%",
+                        }}
+                        src={data.image}
+                        alt=""
+                      />
+                      <span
+                        className="ml-2"
+                        style={{ color: "black", fontSize: "14px" }}
+                        onClick={goToProfile}
+                      >
+                        <strong>{data.name}</strong>
+                      </span>
+                    </ListGroup.Item>
+                  </Link>
                 </div>
               </ListGroup>
             );
