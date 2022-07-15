@@ -10,18 +10,19 @@ import {
 } from "react-bootstrap-icons";
 
 const Post = () => {
+  const [feed, setFeed] = useState([]);
+
   const [profile, setProfile] = useState({});
 
   const [addFeed, setAddFeed] = useState({
     text: "",
   });
 
-
-
   useEffect(() => {
     fetchProfile();
   }, []);
 
+  // FETCH MY PROFILE for profile pic
   const fetchProfile = async () => {
     try {
       const url = "https://striveschool-api.herokuapp.com/api/profile/me";
@@ -44,6 +45,32 @@ const Post = () => {
     }
   };
 
+  //GET MY FEED
+
+  const fetchFeed = async () => {
+    try {
+      const url = "https://striveschool-api.herokuapp.com/api/posts/";
+
+      const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmNiZjY0YmU2YzAzMDAwMTU5MTgxNDUiLCJpYXQiOjE2NTc1MzQwMjcsImV4cCI6MTY1ODc0MzYyN30.CB7NDDp16Z2r4LEBmGrsgrwMVNQI6vKZ1_ERAXJtQyU",
+        },
+      });
+      if (response.ok) {
+        const news = await response.json();
+
+        console.log(news);
+        setFeed(news);
+      } else {
+        const msg = response.text;
+        console.log(msg);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   // POST FEED
 
   const postFeed = async () => {
@@ -73,7 +100,6 @@ const Post = () => {
     }
   };
 
-
   return (
     <>
       <div className="feed">
@@ -102,7 +128,10 @@ const Post = () => {
             </Col>
             <Col xs={2} className="mt-2 px-0">
               <Button
-                onClick={postFeed}
+                onClick={() => {
+                  postFeed();
+                  fetchFeed();
+                }}
                 className="postFeed-btn font-weight-bold"
                 variant="primary"
               >

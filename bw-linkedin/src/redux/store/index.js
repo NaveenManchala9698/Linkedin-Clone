@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import localStorage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 import { encryptTransform } from "redux-persist-transform-encrypt";
