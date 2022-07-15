@@ -87,6 +87,7 @@ const Profile = () => {
               className="profile-img"
               src={profileData.image}
               alt="profileImage"
+              onClick={handleShow2}
             />
           </div>
           <PencilFill className="bg-edit-icon" />
@@ -128,13 +129,6 @@ const Profile = () => {
                     variant="outline-secondary"
                   >
                     <b>More</b>
-                  </Button>
-                  <Button
-                    className="mr-2 profile-buttons"
-                    variant="outline-primary"
-                    onClick={handleShow2}
-                  >
-                    Post Image
                   </Button>
                 </div>
               </>

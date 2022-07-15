@@ -447,6 +447,7 @@ const MyExperience = () => {
                   onClick={() => {
                     modalShow();
                     setCurrentExpID(experience._id);
+                    setEditExperience(experience);
                   }}
                 />
               </Col>

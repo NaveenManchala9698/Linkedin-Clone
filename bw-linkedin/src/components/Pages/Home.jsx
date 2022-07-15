@@ -2,22 +2,25 @@ import Feed from "../Feed";
 import Sidebar from "../Sidebar";
 import Post from "../Post";
 import NewsFeedProfile from "../NewsFeedProfile";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Home = () => {
   return (
     <>
-      <div className="d-flex hero-section">
-        <div>
-          <NewsFeedProfile />
-        </div>
-        <div className="flex-grow-1" style={{ maxWidth: "35rem" }}>
-          <Post />
-          <Feed />
-        </div>
-        <div>
-          <Sidebar />
-        </div>
-      </div>
+      <Container className=" hero-section">
+        <Row>
+          <Col md={3} style={{ padding: "0" }}>
+            <NewsFeedProfile />
+          </Col>
+          <Col md={6} style={{ padding: "0" }}>
+            <Post />
+            <Feed />
+          </Col>
+          <Col md={3} style={{ padding: "0" }}>
+            <Sidebar />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
