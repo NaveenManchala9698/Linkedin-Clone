@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row, Modal, Form } from "react-bootstrap";
 import {
   CalendarDate,
   CardImage,
@@ -15,6 +15,8 @@ const Post = () => {
   const [addFeed, setAddFeed] = useState({
     text: "",
   });
+
+
 
   useEffect(() => {
     fetchProfile();
@@ -70,6 +72,7 @@ const Post = () => {
       console.log(error);
     }
   };
+
 
   return (
     <>

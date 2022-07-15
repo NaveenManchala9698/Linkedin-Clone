@@ -63,7 +63,7 @@ const Profile = () => {
       );
 
       if (response.ok) {
-        alert("Image Uploaded Successfully");
+        console.log("Image Uploaded Successfully");
       }
     } catch (error) {
       console.log(error);
