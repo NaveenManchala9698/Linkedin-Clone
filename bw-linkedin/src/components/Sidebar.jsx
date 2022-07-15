@@ -59,7 +59,6 @@ const Sidebar = () => {
     <>
       <Card
         style={{
-          maxWidth: "18rem",
           borderRadius: "15px",
         }}
         className="mb-2 mt-2"
@@ -73,7 +72,7 @@ const Sidebar = () => {
           </Card.Text>
           <hr></hr>
           <Card.Text className="font-weight-bold" style={{ fontSize: "14px" }}>
-            Add profile in another language
+            Add profile in another lang
             <span className="float-right">
               <QuestionCircleFill />
             </span>
@@ -85,7 +84,6 @@ const Sidebar = () => {
 
       <Card
         style={{
-          width: "18rem",
           borderRadius: "15px",
         }}
         className="mb-2"
@@ -174,7 +172,7 @@ const Sidebar = () => {
 
       {/* Section - People you may know */}
 
-      <Card style={{ width: "18rem", borderRadius: "15px" }} className="mb-3">
+      <Card style={{ borderRadius: "15px" }} className="mb-3">
         <Card.Body>
           <Card.Title
             className="font-weight-bold mb-4"

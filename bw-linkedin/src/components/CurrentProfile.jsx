@@ -59,10 +59,16 @@ const CurrentProfile = () => {
         <div className="details">
           {currentProfileData && (
             <>
-              <Bell className="bell-icon" />
-              <h2>
-                {currentProfileData.name} {currentProfileData.surname}
-              </h2>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div>
+                  <h2>
+                    {currentProfileData.name} {currentProfileData.surname}
+                  </h2>
+                </div>
+                <div style={{ marginRight: "1rem", marginTop: "0.5rem" }}>
+                  <Bell className="bell-icon" />
+                </div>
+              </div>
               <h4>{currentProfileData.title}</h4>
               <p>
                 {currentProfileData.area}.{" "}
