@@ -79,7 +79,6 @@ const MyExperience = () => {
       // console.log("RESPONSE", response);
       if (response.ok) {
         console.log(response);
-        alert("ok");
         setAddExperience({
           role: "",
           company: "",
