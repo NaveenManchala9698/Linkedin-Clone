@@ -11,8 +11,8 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-2">
             <img
-              src="https://www.citypng.com/public/uploads/preview/hd-linkedin-official-logo-transparent-background-31623962207jz85kqlqot.png"
-              height="34"
+              src="https://blog.waalaxy.com/wp-content/uploads/2021/01/Linkedin-Logo-2048x1280.png"
+              height="45"
               alt="logo"
             />
           </div>

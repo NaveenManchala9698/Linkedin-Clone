@@ -134,10 +134,7 @@
 }
 
 .bell-icon {
-  position: absolute;
-  right: 250px;
-  font-size: 28px;
-  top: 350px;
+  font-size: 25px;
 }
 
 .profile-buttons {
@@ -198,6 +195,7 @@
   padding: 15px;
   margin-right: 15px;
 }
+
 .post {
   border: 1px solid grey;
   border-radius: 35px;

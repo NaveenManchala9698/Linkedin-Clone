@@ -4,12 +4,12 @@ import Sidebar from '../Sidebar'
 
 const UserProfilePage = () => {
     return (
-        <Container>
+        <Container className="hero-section">
             <Row>
                 <Col xs={9}>
                     <CurrentProfile />
                 </Col>
-                <Col xs={3}>
+                <Col xs={3} >
                     <Sidebar />
                 </Col>
             </Row>
