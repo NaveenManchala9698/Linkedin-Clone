@@ -1,16 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  background-color: #e9e5df;
 }
 
 .App-header {
@@ -24,15 +14,227 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.mynav {
+  background-color: whitesmoke;
+  flex-wrap: nowrap !important;
+  align-items: center;
+  position: fixed;
+  margin-right: 0 !important;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+  margin-left: 0 !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-list {
+  /* position: fixed; */
+  /*  z-index: 3; */
+}
+
+.nav-left {
+  margin-left: 10rem;
+  display: inline-flex;
+}
+
+.nav-links {
+  display: flex;
+
+  /* justify-content: space-between; */
+}
+
+.nav-links span {
+  color: rgb(77, 77, 77);
+}
+
+.nav-links span:hover {
+  color: black;
+}
+
+.nav-icons {
+  font-size: 25px;
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+}
+
+.nav-icons:hover {
+  color: rgb(22, 22, 22);
+}
+
+.nav-links .premium-msg {
+  color: #915907;
+  display: block;
+  max-width: 8rem;
+}
+
+.nav-links .premium-msg:hover {
+  color: #915907;
+  text-decoration: underline;
+}
+
+.linkedin-icon {
+  font-size: 50px;
+  padding: 4px;
+  color: #0a66c2;
+}
+
+.nav-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.hero-section {
+  margin: 0 15rem;
+  padding-top: 70px;
+}
+
+.bg {
+  width: 100%;
+  margin-left: 0;
+}
+
+#backgroundImage {
+  height: 250px;
+  width: 100%;
+}
+
+.profile-img {
+  position: absolute;
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50%;
+  top: 140px;
+  left: 35px;
+  /* margin-top: -6rem;
+  margin-left: -30rem !important; */
+}
+
+.bg-edit-icon {
+  position: absolute;
+  font-size: 25px;
+  top: 2rem;
+  right: 2rem;
+  /* margin-left: 40rem;
+   margin-top: -42rem; */
+  color: #0a66c2;
+  background-color: aliceblue;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.main-section {
+  position: relative;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+
+  overflow: hidden;
+  padding-bottom: 1.5rem;
+  background-color: white;
+}
+
+.bell-icon {
+  font-size: 25px;
+}
+
+.profile-buttons {
+  border-radius: 25px !important;
+  padding: 5px 20px !important;
+}
+
+.about {
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: left !important;
+}
+
+.details {
+  text-align: left;
+  margin-left: 1rem;
+  margin-top: 5rem;
+  line-height: 0.5rem;
+}
+
+.profile-buttons {
+  border-radius: 25px !important;
+  padding: 5px 20px !important;
+  margin-top: 1rem;
+}
+
+.profile-edit {
+  position: absolute;
+  right: 3rem;
+  top: 18rem;
+  font-size: 20px;
+}
+
+/* .profile-edit:hover {
+  font-size: 20px;
+  background-color: #e9e5df;
+  border-radius: 50%;
+  padding: 5px;
+
+} */
+
+.experience-div,
+.education-div,
+.skills-div {
+  margin-top: 15px;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: white;
+}
+
+.feed {
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  padding: 15px;
+  margin-right: 15px;
+}
+
+.post {
+  border: 1px solid grey;
+  border-radius: 35px;
+  padding: 15px;
+  background-color: inherit;
+  width: 100%;
+  margin-left: 0;
+  cursor: pointer;
+  height: 45px;
+  margin-top: 5px;
+}
+
+.post:hover {
+  background-color: lightgray;
+}
+
+.postFeed-btn {
+  border-radius: 40px !important;
+}
+
+.feed-edit-icon {
+  color: rgb(16, 16, 16);
+  font-size: 25px;
+}
+
+.feed-edit-icon:hover {
+  background-color: #e9e5df;
+  border-radius: 50%;
+  padding: 1px;
+}
+
+.Header {
+  background-image: url("https://i.pinimg.com/originals/76/e9/23/76e9238fca30a0fc41b6f5fac75b516b.jpg");
+}
+
+.inputs-modal {
+  border-radius: 5px;
+}
+
+.profile-edit-modal {
+  padding-top: 0.5rem !important;
 }
